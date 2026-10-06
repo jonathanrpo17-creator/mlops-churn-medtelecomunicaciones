@@ -17,8 +17,8 @@ mlflow.db
 mlartifacts/
 
 # Artefactos y registros generados
-models/
-logs/
+/models/
+/logs/
 
 # Secretos
 .env
