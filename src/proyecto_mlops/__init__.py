@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from proyecto-mlops!")
+"""Proyecto MLOps: predicción de churn para MedTelecomunicaciones."""
