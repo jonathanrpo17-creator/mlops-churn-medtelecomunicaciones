@@ -1,0 +1,28 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Datos: se descargan, no se versionan (decisión 6)
+data/raw/*
+!data/raw/.gitkeep
+
+# MLflow: resultados de experimentos locales
+mlruns/
+mlflow.db
+mlartifacts/
+
+# Artefactos y registros generados
+models/
+logs/
+
+# Secretos
+.env
+
+# Editor y sistema
+.vscode/
+.idea/

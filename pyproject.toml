@@ -1,0 +1,31 @@
+[project]
+name = "proyecto-mlops"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "jonathanrpo17-creator", email = "jonathanrpo17@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.142.2",
+    "mlflow>=3.16.1",
+    "pandas>=3.0.6",
+    "prefect>=3.8.7",
+    "scikit-learn>=1.9.1",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+proyecto-mlops = "proyecto_mlops:main"
+
+[build-system]
+requires = ["uv_build>=0.12.15,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "black>=26.10.0",
+    "flake8>=7.4.1",
+    "pytest>=9.1.1",
+]
