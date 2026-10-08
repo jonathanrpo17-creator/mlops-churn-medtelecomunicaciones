@@ -59,3 +59,8 @@ ALIAS_PRODUCTION = "production"
 # Recall mínimo (validación cruzada) para promover un modelo a producción.
 # Supuesto del equipo, pendiente de validar con el área de fidelización.
 MIN_CV_RECALL = 0.60
+
+
+# --- API ---------------------------------------------------------------
+# Umbral para convertir la probabilidad en clase 0/1 (decisión 3: se mantiene).
+DECISION_THRESHOLD = 0.5
