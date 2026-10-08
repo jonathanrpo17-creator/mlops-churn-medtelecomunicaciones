@@ -64,3 +64,12 @@ MIN_CV_RECALL = 0.60
 # --- API ---------------------------------------------------------------
 # Umbral para convertir la probabilidad en clase 0/1 (decisión 3: se mantiene).
 DECISION_THRESHOLD = 0.5
+
+# --- Monitoreo (Fase 9) ---------------------------------------------------
+# Archivo donde la API registra cada predicción (una línea JSON por petición).
+PREDICTION_LOG_FILE = "logs/predictions.jsonl"
+# Umbrales habituales del PSI: < 0.10 estable, 0.10-0.25 atención, > 0.25 alerta.
+PSI_WARNING = 0.10
+PSI_ALERT = 0.25
+# Con menos predicciones registradas el informe de deriva no es fiable.
+MIN_LOGGED_ROWS = 30

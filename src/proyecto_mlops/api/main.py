@@ -1,6 +1,7 @@
 """API REST de predicción de churn (FastAPI)."""
 
 import logging
+import time
 from contextlib import asynccontextmanager
 
 import pandas as pd
@@ -10,6 +11,7 @@ from proyecto_mlops.api.model_loader import load_model
 from proyecto_mlops.api.schemas import CustomerData, PredictionResponse
 from proyecto_mlops.config import DECISION_THRESHOLD
 from proyecto_mlops.data.prepare import clean_features
+from proyecto_mlops.monitoring.prediction_log import log_prediction
 
 logger = logging.getLogger("churn-api")
 STATE: dict = {}
@@ -40,12 +42,19 @@ def health():
 
 @app.post("/predict", response_model=PredictionResponse)
 def predict(customer: CustomerData):
-    """Predice el churn de un cliente."""
+    """Predice el churn de un cliente y registra la predicción para monitoreo."""
+    start = time.perf_counter()
+    features = customer.model_dump()
     # Misma limpieza que en el entrenamiento; el preprocesamiento lo hace el Pipeline.
-    frame = clean_features(pd.DataFrame([customer.model_dump()]))
+    frame = clean_features(pd.DataFrame([features]))
     probability = float(STATE["model"].predict_proba(frame)[0, 1])
+    prediction = int(probability >= DECISION_THRESHOLD)
+    latency_ms = (time.perf_counter() - start) * 1000
+    log_prediction(
+        features, round(probability, 4), prediction, STATE["version"], latency_ms
+    )
     return PredictionResponse(
-        prediction=int(probability >= DECISION_THRESHOLD),
+        prediction=prediction,
         churn_probability=round(probability, 4),
         model_version=STATE["version"],
     )
