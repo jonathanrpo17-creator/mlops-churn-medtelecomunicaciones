@@ -41,8 +41,6 @@ FEATURES = NUMERIC_FEATURES + CATEGORICAL_FEATURES
 EXPECTED_RAW_COLUMNS = [ID_COLUMN] + FEATURES + [TARGET]
 
 
-
-
 # --- Experimentos y MLflow ---------------------------------------------
 MLFLOW_TRACKING_URI = "sqlite:///mlflow.db"
 MLFLOW_EXPERIMENT = "churn-medtelecomunicaciones"
@@ -52,3 +50,12 @@ BASELINE_NAME = "logreg_baseline"
 # Costos de negocio (USD) del caso MedTelecomunicaciones.
 COST_FALSE_NEGATIVE = 300  # cliente que se va y no detectamos
 COST_FALSE_POSITIVE = 40  # campaña de retención innecesaria
+
+
+# --- Model Registry ----------------------------------------------------
+MODEL_NAME = "churn-model"
+ALIAS_STAGING = "staging"
+ALIAS_PRODUCTION = "production"
+# Recall mínimo (validación cruzada) para promover un modelo a producción.
+# Supuesto del equipo, pendiente de validar con el área de fidelización.
+MIN_CV_RECALL = 0.60
