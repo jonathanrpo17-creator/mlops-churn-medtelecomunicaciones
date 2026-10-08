@@ -39,3 +39,16 @@ CATEGORICAL_FEATURES = [
 ]
 FEATURES = NUMERIC_FEATURES + CATEGORICAL_FEATURES
 EXPECTED_RAW_COLUMNS = [ID_COLUMN] + FEATURES + [TARGET]
+
+
+
+
+# --- Experimentos y MLflow ---------------------------------------------
+MLFLOW_TRACKING_URI = "sqlite:///mlflow.db"
+MLFLOW_EXPERIMENT = "churn-medtelecomunicaciones"
+CV_FOLDS = 5
+BASELINE_NAME = "logreg_baseline"
+
+# Costos de negocio (USD) del caso MedTelecomunicaciones.
+COST_FALSE_NEGATIVE = 300  # cliente que se va y no detectamos
+COST_FALSE_POSITIVE = 40  # campaña de retención innecesaria
