@@ -1,6 +1,7 @@
 """Carga del modelo que sirve la API."""
 
 import os
+from pathlib import Path
 
 import mlflow
 from mlflow import MlflowClient
@@ -17,6 +18,9 @@ def load_model():
     model_uri = os.getenv("MODEL_URI")
     if model_uri:
         model = mlflow.sklearn.load_model(model_uri)
+        version_file = Path(model_uri) / "model_version.txt"
+        if version_file.exists():
+            return model, version_file.read_text().strip()
         return model, os.getenv("MODEL_VERSION", "local")
 
     mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
