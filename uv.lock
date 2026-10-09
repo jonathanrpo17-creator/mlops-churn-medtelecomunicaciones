@@ -2757,6 +2757,7 @@ dependencies = [
 dev = [
     { name = "black" },
     { name = "flake8" },
+    { name = "httpx" },
     { name = "pytest" },
 ]
 
@@ -2774,6 +2775,7 @@ requires-dist = [
 dev = [
     { name = "black", specifier = ">=26.10.0" },
     { name = "flake8", specifier = ">=7.4.1" },
+    { name = "httpx", specifier = ">=0.28.1" },
     { name = "pytest", specifier = ">=9.1.1" },
 ]
 
