@@ -72,4 +72,4 @@ PREDICTION_LOG_FILE = "logs/predictions.jsonl"
 PSI_WARNING = 0.10
 PSI_ALERT = 0.25
 # Con menos predicciones registradas el informe de deriva no es fiable.
-MIN_LOGGED_ROWS = 30
+MIN_LOGGED_ROWS = 200
