@@ -264,20 +264,8 @@ es 0.5 (`prediction = probability >= 0.5`).
 - **No mide** desempeño real del modelo (no hay etiquetas en producción) ni dispara
   reentrenamiento: es informativo.
 
-## 10. Equipo y cronograma
 
-> **Completar antes de entregar** (el curso pide tiempos y responsables).
-
-| Actividad | Responsable | Fecha |
-|---|---|---|
-| EDA y baseline | `<NOMBRE>` | `<FECHA>` |
-| Experimentos y MLflow | `<NOMBRE>` | `<FECHA>` |
-| Pipeline Prefect | `<NOMBRE>` | `<FECHA>` |
-| API y Docker | `<NOMBRE>` | `<FECHA>` |
-| Monitoreo y pruebas | `<NOMBRE>` | `<FECHA>` |
-| README y sustentación | `<NOMBRE>` | `<FECHA>` |
-
-## 11. Limitaciones conocidas
+## 10. Limitaciones conocidas
 
 - Los costos (300 / 40 USD) y el recall mínimo de 0.60 son supuestos, no datos de negocio.
 - El campeón marca ≈ 41 % de los clientes como churn: útil para priorizar, costoso si la
@@ -288,6 +276,6 @@ es 0.5 (`prediction = probability >= 0.5`).
 - El log de predicciones es un archivo local (sin rotación ni concurrencia múltiple).
 - Una advertencia de Starlette sobre `httpx` en los tests es inofensiva.
 
-## 12. Licencia y datos
+## 11. Licencia y datos
 
 Proyecto académico. Dataset: *Telco Customer Churn*, publicado por IBM.
