@@ -192,7 +192,7 @@ uv run python -m proyecto_mlops.monitoring.report
 ```
 Resultado: con tráfico normal todas las variables quedan en PSI < 0.01 (estable); con
 deriva, `tenure`, `TotalCharges`, `Contract` y `MonthlyCharges` pasan a **ALERTA** y el
-churn predicho sube a ~62 %. Para repetir la demo desde cero, borra `logs/predictions.jsonl`.
+churn predicho sube a ~58–62 %. Para repetir la demo desde cero, borra `logs/predictions.jsonl`.
 
 ### Calidad de código
 ```powershell
